@@ -569,3 +569,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1, 0.035)
 
 [node name="Sword" parent="WeaponHolder" instance=ExtResource("1_8afwd")]
 transform = Transform3D(-3.09086e-09, 3.09086e-09, 0.1, 0.0707107, 0.0707107, 0, -0.0707107, 0.0707107, -4.37114e-09, 0, 0, 0)
+
+[node name="AttackRayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 1, 0.4)
+target_position = Vector3(0, 0, 0.8)
