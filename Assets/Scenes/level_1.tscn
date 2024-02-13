@@ -12,7 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bj8bakd324jmo" path="res://Assets/Models/Environment/Platform/naturePack_020.obj" id="10_tyijh"]
 [ext_resource type="ArrayMesh" uid="uid://cqmvjr5yco21h" path="res://Assets/Models/Environment/Platform/naturePack_021.obj" id="11_qott6"]
 [ext_resource type="ArrayMesh" uid="uid://br3snrs38ca15" path="res://Assets/Models/Environment/Platform/naturePack_022.obj" id="12_dibrs"]
-[ext_resource type="PackedScene" uid="uid://jhn2vatihon7" path="res://Assets/Prefabs/player.tscn" id="13_fdcld"]
+[ext_resource type="PackedScene" uid="uid://dpee0ovnawgco" path="res://Assets/Prefabs/player.tscn" id="13_fdcld"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8ie8n"]
 data = PackedVector3Array(0, 0, 0, 3, 0.3, 0, 3, 0, 0, 3, 0.3, 0, 0, 0, 0, 0, 0.3, 0, 0, 0.3, -3, 3, 0.3, 0, 0, 0.3, 0, 3, 0.3, 0, 0, 0.3, -3, 3, 0.3, -3, 3, 0, -3, 3, 0.3, 0, 3, 0.3, -3, 3, 0.3, 0, 3, 0, -3, 3, 0, 0, 3, 0, -3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, -3, 0, 0, -3, 0, 0.3, -3, 0, 0, 0, 0, 0, -3, 0, 0, 0, 0, 0.3, -3, 0, 0.3, 0, 3, 0, -3, 0, 0.3, -3, 0, 0, -3, 0, 0.3, -3, 3, 0, -3, 3, 0.3, -3)
@@ -82,228 +82,230 @@ data = PackedVector3Array(0.1467, 0, 0, 0.6075, 0.53, -0.2775, 0.8168, 0, 0, 0.6
 
 [node name="Level 1" type="Node3D"]
 
-[node name="NaturePack001" type="MeshInstance3D" parent="."]
+[node name="Emviroment" type="Node" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Emviroment"]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -15, 0, 15)
 mesh = ExtResource("1_x3kkh")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="NaturePack001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NaturePack001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_8ie8n")
 
-[node name="Trees" type="Node3D" parent="."]
+[node name="Trees" type="Node3D" parent="Emviroment"]
 
-[node name="NaturePack066" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack066" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(0.863967, 0, -0.503548, 0, 1, 0, 0.503548, 0, 0.863967, -0.723333, 0, -8.87688)
 mesh = ExtResource("2_aa0y7")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack066"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack066"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack066/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack066/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_q0ypu")
 
-[node name="NaturePack069" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack069" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(0.67238, 0, -0.740206, 0, 1, 0, 0.740206, 0, 0.67238, 8.63354, 0, 2.72468)
 mesh = ExtResource("2_aa0y7")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack069"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack069"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack069/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack069/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_81qdn")
 
-[node name="NaturePack072" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack072" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(-0.0246417, 0, 0.999696, 0, 1, 0, -0.999696, 0, -0.0246417, 12.1419, 0, 12.7938)
 mesh = ExtResource("2_aa0y7")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack072"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack072"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack072/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack072/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_x2y55")
 
-[node name="NaturePack076" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack076" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(0.367004, 0, 0.930219, 0, 1, 0, -0.930219, 0, 0.367004, 12.1419, 0, -1.17198)
 mesh = ExtResource("2_aa0y7")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack076"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack076"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack076/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack076/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mvggl")
 
-[node name="NaturePack073" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack073" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(-0.753437, 0, 0.65752, 0, 1, 0, -0.65752, 0, -0.753437, 6.00276, 0, 11.1493)
 mesh = ExtResource("2_aa0y7")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack073"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack073"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack073/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack073/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_m5lir")
 
-[node name="NaturePack067" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack067" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.723333, 0, 9.37647)
 mesh = ExtResource("2_aa0y7")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack067"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack067"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack067/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack067/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_j455b")
 
-[node name="NaturePack071" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack071" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(0.753311, 0, 0.657665, 0, 1, 0, -0.657665, 0, 0.753311, -12.7454, 0, 9.37647)
 mesh = ExtResource("2_aa0y7")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack071"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack071"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack071/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack071/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_hst2f")
 
-[node name="NaturePack065" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack065" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2032, 0, 5.49786)
 mesh = ExtResource("3_gf1e1")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack065"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack065"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack065/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack065/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_x7exj")
 
-[node name="NaturePack068" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack068" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(-0.309581, 0, -0.950873, 0, 1, 0, 0.950873, 0, -0.309581, 9.67645, 0, -14.2464)
 mesh = ExtResource("3_gf1e1")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack068"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack068"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack068/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack068/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_2cnlm")
 
-[node name="NaturePack075" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack075" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(-0.968601, 0, 0.248622, 0, 1, 0, -0.248622, 0, -0.968601, 3.63905, 0, -14.2464)
 mesh = ExtResource("3_gf1e1")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack075"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack075"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack075/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack075/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_7jx31")
 
-[node name="NaturePack074" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack074" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(-0.854441, 0, -0.519549, 0, 1, 0, 0.519549, 0, -0.854441, 12.3698, 0, -9.89891)
 mesh = ExtResource("3_gf1e1")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack074"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack074"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack074/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack074/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_6dh0s")
 
-[node name="NaturePack070" type="MeshInstance3D" parent="Trees"]
+[node name="NaturePack070" type="MeshInstance3D" parent="Emviroment/Trees"]
 transform = Transform3D(-0.713568, 0, -0.700586, 0, 1, 0, 0.700586, 0, -0.713568, -13.5887, 0, -14.2464)
 mesh = ExtResource("3_gf1e1")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Trees/NaturePack070"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Trees/NaturePack070"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trees/NaturePack070/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Trees/NaturePack070/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_dw3gs")
 
-[node name="Platforms" type="Node3D" parent="."]
+[node name="Platforms" type="Node3D" parent="Emviroment"]
 
-[node name="NaturePack014" type="MeshInstance3D" parent="Platforms"]
+[node name="NaturePack014" type="MeshInstance3D" parent="Emviroment/Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.40504, 0, -1.21978)
 mesh = ExtResource("4_jkguq")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/NaturePack014"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Platforms/NaturePack014"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/NaturePack014/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Platforms/NaturePack014/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_md8cn")
 
-[node name="NaturePack015" type="MeshInstance3D" parent="Platforms"]
+[node name="NaturePack015" type="MeshInstance3D" parent="Emviroment/Platforms"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.04189, 0, -7.51087)
 mesh = ExtResource("5_j5e57")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/NaturePack015"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Platforms/NaturePack015"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/NaturePack015/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Platforms/NaturePack015/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_dd4q8")
 
-[node name="NaturePack016" type="MeshInstance3D" parent="Platforms"]
+[node name="NaturePack016" type="MeshInstance3D" parent="Emviroment/Platforms"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.69645, 0, -1.21978)
 mesh = ExtResource("6_xwwk8")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/NaturePack016"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Platforms/NaturePack016"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/NaturePack016/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Platforms/NaturePack016/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_2rr1r")
 
-[node name="NaturePack017" type="MeshInstance3D" parent="Platforms"]
+[node name="NaturePack017" type="MeshInstance3D" parent="Emviroment/Platforms"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 7.04189, 0, 9.21176)
 mesh = ExtResource("7_kquxm")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/NaturePack017"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Platforms/NaturePack017"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/NaturePack017/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Platforms/NaturePack017/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ipv4q")
 
-[node name="NaturePack018" type="MeshInstance3D" parent="Platforms"]
+[node name="NaturePack018" type="MeshInstance3D" parent="Emviroment/Platforms"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4.5288, 0, 2.77192)
 mesh = ExtResource("8_rpagl")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/NaturePack018"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Platforms/NaturePack018"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/NaturePack018/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Platforms/NaturePack018/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_pwqpv")
 
-[node name="NaturePack019" type="MeshInstance3D" parent="Platforms"]
+[node name="NaturePack019" type="MeshInstance3D" parent="Emviroment/Platforms"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.12469, 0, -7.19808)
 mesh = ExtResource("9_f42ql")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/NaturePack019"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Platforms/NaturePack019"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/NaturePack019/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Platforms/NaturePack019/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_syhwi")
 
-[node name="NaturePack020" type="MeshInstance3D" parent="Platforms"]
+[node name="NaturePack020" type="MeshInstance3D" parent="Emviroment/Platforms"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -10.3337, 0, -8.05279)
 mesh = ExtResource("10_tyijh")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/NaturePack020"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Platforms/NaturePack020"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/NaturePack020/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Platforms/NaturePack020/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_yowyy")
 
-[node name="NaturePack021" type="MeshInstance3D" parent="Platforms"]
+[node name="NaturePack021" type="MeshInstance3D" parent="Emviroment/Platforms"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 10.5886, 0, 4.84494)
 mesh = ExtResource("11_qott6")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/NaturePack021"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Platforms/NaturePack021"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/NaturePack021/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Platforms/NaturePack021/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_1e2ql")
 
-[node name="NaturePack022" type="MeshInstance3D" parent="Platforms"]
+[node name="NaturePack022" type="MeshInstance3D" parent="Emviroment/Platforms"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.579109, 0, -12.3573)
 mesh = ExtResource("12_dibrs")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Platforms/NaturePack022"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Emviroment/Platforms/NaturePack022"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/NaturePack022/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Emviroment/Platforms/NaturePack022/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_e63ll")
 
 [node name="Player" parent="." instance=ExtResource("13_fdcld")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
