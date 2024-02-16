@@ -2,18 +2,20 @@ using Godot;
 
 namespace Godot3DActionRPG.Assets.Scripts;
 
-public partial class Player : CharacterBody3D
+public partial class Player : Character
 {
+    /*
     private int _curHp = 10;
     private int _maxHp = 10;
     private int _damage = 1;
-    private int _goldCoin = 5;
     private float _attackRate = .3f;
+    private float _moveSpeed = 5f;*/
+    private Vector3 Vel = new Vector3();
+    
+    private int _goldCoin = 5;
     private float _lastAttack = 0f;
-    private float _moveSpeed = 5f;
     private float _jumpForce = 10f;
     private float _gravity = 15f;
-    private Vector3 _velocity = new Vector3();
     private Node3D _cameraOrbit = null;
     private RayCast3D _ray = null;
     private Vector3 _input = new Vector3();
@@ -23,13 +25,14 @@ public partial class Player : CharacterBody3D
     {
         _cameraOrbit = GetNode<Node3D>("CameraOrbit");
         _ray = GetNode<RayCast3D>("AttackRayCast");
+        OnInit();
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        //_velocity.X = 0;
-        //_velocity.Z = 0;
-        _velocity = Velocity;
+        //_velocit.X = 0;
+        //_velocit.Z = 0;
+        Vel = Velocity;
         _input = new Vector3(0,0,0);
         
         // Movement input
@@ -61,21 +64,21 @@ public partial class Player : CharacterBody3D
         _dir = new Vector3();
         _dir = (Transform.Basis.Z * _input.Z + Transform.Basis.X * _input.X);
         // Apply the direction to our velocity
-        _velocity.X = _dir.X * _moveSpeed;
-        _velocity.Z = _dir.Z * _moveSpeed;
+        Vel.X = _dir.X * MoveSpeed;
+        Vel.Z = _dir.Z * MoveSpeed;
         // Gravity
-        _velocity.Y -= _gravity * (float)delta;
+        Vel.Y -= _gravity * (float)delta;
         // Jump input
         if (Input.IsActionPressed("ui_select") && IsOnFloor())
         {
             GD.Print("saltito");
-            _velocity.Y = _jumpForce;
+            Vel.Y = _jumpForce;
         }
         // Move along the current velocity
         /* godot 3.5
-         * _velocity = MoveAndSlide(_velocity, Vector3.Up);
+         * _velocit = MoveAndSlide(_velocit, Vector3.Up);
          */
-        Velocity = _velocity;
+        Velocity = Vel;
         MoveAndSlide();
     }
 
@@ -84,4 +87,5 @@ public partial class Player : CharacterBody3D
     {
         _goldCoin += goldToGive;
     }
+
 }
