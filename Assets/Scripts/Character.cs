@@ -10,7 +10,7 @@ public abstract partial class Character: CharacterBody3D
     [Export] protected int Damage;
     [Export] protected float AttackRate;
     [Export] protected float MoveSpeed;
-    //protected Vector3 Vel;
+    protected Vector3 Vel;
 
     protected void OnInit()
     {

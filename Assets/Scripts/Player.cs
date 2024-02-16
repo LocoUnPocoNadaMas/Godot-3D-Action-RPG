@@ -10,7 +10,7 @@ public partial class Player : Character
     private int _damage = 1;
     private float _attackRate = .3f;
     private float _moveSpeed = 5f;*/
-    private Vector3 Vel = new Vector3();
+    //private Vector3 Vel = new Vector3();
     
     private int _goldCoin = 5;
     private float _lastAttack = 0f;
