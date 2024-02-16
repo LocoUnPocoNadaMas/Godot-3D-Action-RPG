@@ -78,4 +78,10 @@ public partial class Player : CharacterBody3D
         Velocity = _velocity;
         MoveAndSlide();
     }
+
+    // Called when collect a coin
+    public void GiveGold(int goldToGive)
+    {
+        _goldCoin += goldToGive;
+    }
 }

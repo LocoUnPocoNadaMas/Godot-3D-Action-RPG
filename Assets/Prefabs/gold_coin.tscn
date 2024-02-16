@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbqxl3p4b8r3o"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/GoldCoin.cs" id="1_28vnx"]
+[ext_resource type="PackedScene" uid="uid://ds2657y378jan" path="res://Assets/Models/GoldCoin.dae" id="2_ty8xc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4g1i8"]
+
+[node name="GoldCoin" type="Area3D"]
+script = ExtResource("1_28vnx")
+
+[node name="Model" parent="." instance=ExtResource("2_ty8xc")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4g1i8")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
