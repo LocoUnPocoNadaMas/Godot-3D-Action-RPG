@@ -38,22 +38,22 @@ public partial class Player : Character
         // Movement input
         if (Input.IsActionPressed("ui_up"))
         {
-            GD.Print("arriba");
+            //GD.Print("arriba");
             _input.Z += 1;
         }
         if (Input.IsActionPressed("ui_down"))
         {
-            GD.Print("abajo");
+            //GD.Print("abajo");
             _input.Z -= 1;
         }
         if (Input.IsActionPressed("ui_left"))
         {
-            GD.Print("izquierda");
+            //GD.Print("izquierda");
             _input.X += 1;
         }
         if (Input.IsActionPressed("ui_right"))
         {
-            GD.Print("derecha");
+            //GD.Print("derecha");
             _input.X -= 1;
         }
         //if(_input.Equals(Vector3.Zero)) return;
@@ -71,7 +71,7 @@ public partial class Player : Character
         // Jump input
         if (Input.IsActionPressed("ui_select") && IsOnFloor())
         {
-            GD.Print("saltito");
+            //GD.Print("saltito");
             Vel.Y = _jumpForce;
         }
         // Move along the current velocity
@@ -88,4 +88,16 @@ public partial class Player : Character
         _goldCoin += goldToGive;
     }
 
+
+    public override void TakeDamage(int damage)
+    {
+        CurHp -= damage;
+        if(CurHp <= 0)
+            Die();
+    }
+
+    protected override void Die()
+    {
+        GetTree().ReloadCurrentScene();
+    }
 }

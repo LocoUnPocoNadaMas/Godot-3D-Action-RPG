@@ -244,6 +244,11 @@ height = 1.8
 
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_583hb")
+CurHp = 10
+MaxHp = 20
+Damage = 3
+AttackRate = 3.0
+MoveSpeed = 5.0
 
 [node name="RootNode" type="Node3D" parent="."]
 
@@ -633,3 +638,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_55rgn")
 
 [node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]

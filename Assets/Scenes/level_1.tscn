@@ -322,3 +322,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.478, 0.8, 5.353)
 
 [node name="Enemy" parent="." instance=ExtResource("15_q3fci")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57336, 0.3, 1.9381)
+_attackDist = 1.5
+MaxHp = 10
+AttackRate = 1.0
+MoveSpeed = 2.5

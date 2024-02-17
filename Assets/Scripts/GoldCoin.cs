@@ -13,7 +13,7 @@ public partial class GoldCoin : Area3D
         RotateY(_rotateSpeed * (float)delta);
     }
 
-    public void OnBodyEntered(Node3D body)
+    private void OnBodyEntered(Node3D body)
     {
         /* Maybe just work in gdscript
         if (body.Name == "Player")

@@ -17,7 +17,13 @@ public abstract partial class Character: CharacterBody3D
         if(CurHp != 0 && MaxHp != 0 && Damage != 0 && AttackRate != 0 && MoveSpeed != 0) return;
         else
         {
-            throw new Exception("Falta asignar valor a uno o mas atributos");
+            GD.Print("Falta asignar valor a uno o más atributos. Cerrando la aplicación...");
+            GetTree().Quit();
         }
     }
+
+    public abstract void TakeDamage(int damage);
+    
+    protected abstract void Die();
+
 }
