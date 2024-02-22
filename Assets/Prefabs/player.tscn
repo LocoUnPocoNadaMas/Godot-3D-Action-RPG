@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpee0ovnawgco"]
+[gd_scene load_steps=16 format=3 uid="uid://dpee0ovnawgco"]
 
 [ext_resource type="Texture2D" uid="uid://dqq4o1vkqh58r" path="res://Assets/Textures/Characters_Black.png" id="1_7yavt"]
 [ext_resource type="Script" path="res://Assets/Scripts/Player.cs" id="1_nut8j"]
@@ -776,6 +776,43 @@ _data = {
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_83uei"]
 graph_offset = Vector2(-191.072, 77.8453)
 
+[sub_resource type="Animation" id="Animation_3xyem"]
+resource_name = "attack"
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.349066, 0, 0), Vector3(0.872665, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7ilm4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_siclj"]
+_data = {
+"RESET": SubResource("Animation_7ilm4"),
+"attack": SubResource("Animation_3xyem")
+}
+
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 script = ExtResource("1_nut8j")
@@ -1158,6 +1195,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.552849, 0.855297, -0.20665
 
 [node name="Sword" parent="WeaponHolder" instance=ExtResource("3_qvcqd")]
 transform = Transform3D(-3.09086e-09, 3.09086e-09, 0.1, 0.0707107, 0.0707107, 0, -0.0707107, 0.0707107, -4.37114e-09, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WeaponHolder"]
+libraries = {
+"": SubResource("AnimationLibrary_siclj")
+}
 
 [node name="AttackRayCast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1, 0.6)
